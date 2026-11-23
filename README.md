@@ -7,7 +7,7 @@ Three separate deliverables:
    - Scroll reveals, tilting "ice block" project cards, and links that morph the particle formation on hover.
    - Uses your portrait photo and includes all four projects.
 2. **`portfolio-cv.html`** — interactive visual CV with two switchable themes: **Bento** (light card grid) and **Terminal** (dark developer). Includes your photo, copy-email button and concise project cards without expandable breakdowns. The choice is remembered in the browser.
-3. **`resume.html`** + **`resume.pdf`** — ATS-friendly, single-column, one-page resume using the CV text you supplied, including the BUET CTF 2023 achievement and References line. Standard font, no graphics/tables, plain visible URLs.
+3. **`cv.pdf`** — the CV shown/linked on the live portfolio. `resume.html` + `resume.pdf` remain as the editable ATS source (single-column, no graphics/tables, plain visible URLs), but the site links to `cv.pdf`.
 
 ## Projects included
 

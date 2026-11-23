@@ -10,6 +10,7 @@ $assets = @(
   'portfolio-cv.html',
   'resume.html',
   'resume.pdf',
+  'cv.pdf',
   '856b3ffe-8140-4a77-9c78-3051c8b4e496.jpg',
   'AdmissionManagementSystem (3).pdf',
   'gargantua.pdf',
