@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Md. Taiyeb Raza — CSE Student | Portfolio CV</title>
+<meta name="description" content="Portfolio-style CV of Md. Taiyeb Raza, Computer Science and Engineering student at JKKNIU. Full-stack web systems and real-time GPU graphics.">
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('tr-cv-theme');
+      if (saved === 'bento' || saved === 'terminal') document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+  })();
+</script>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --text: #111827;
+    --muted: #5b6675;
+    --border: #e2e7f0;
+    --accent: #4f46e5;
+    --accent-2: #0891b2;
+    --accent-soft: #eef2ff;
+    --on-accent: #ffffff;
+    --shadow: 0 12px 32px rgba(16, 24, 40, .06);
+    --radius: 20px;
+    --sans: "Inter", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    --mono: "JetBrains Mono", "Cascadia Code", Consolas, "SFMono-Regular", monospace;
+  }
+
+  html[data-theme="terminal"] {
+    color-scheme: dark;
+    --bg: #090e13;
+    --surface: #101820;
+    --surface-2: #0b1218;
+    --text: #d8e4ef;
+    --muted: #90a2b3;
+    --border: #253344;
+    --accent: #5eead4;
+    --accent-2: #a3e635;
+    --accent-soft: #102b2b;
+    --on-accent: #07110f;
+    --shadow: none;
+    --radius: 8px;
+    --sans: "JetBrains Mono", "Cascadia Code", Consolas, "SFMono-Regular", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(700px 400px at 12% -5%, rgba(79, 70, 229, .10), transparent 70%),
+      radial-gradient(600px 420px at 95% 10%, rgba(8, 145, 178, .09), transparent 70%);
+  }
+  html[data-theme="terminal"] body::before {
+    background-image:
+      linear-gradient(rgba(94, 234, 212, .035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(94, 234, 212, .035) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  ::selection { background: var(--accent); color: var(--on-accent); }
+
+  .shell { max-width: 1140px; margin: 0 auto; padding: 0 20px 64px; }
+
+  /* Top bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 12px 20px;
+    margin: 0 -20px 26px;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: -.01em; }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px; height: 34px;
+    border-radius: 11px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .topnav { display: flex; gap: 18px; font-size: 13px; }
+  .topnav a { color: var(--muted); text-decoration: none; }
+  .topnav a:hover { color: var(--accent); }
+  .controls { display: flex; align-items: center; gap: 10px; }
+  .theme-switch { display: inline-flex; padding: 3px; gap: 2px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
+  .theme-switch button {
+    border: 0; background: transparent; color: var(--muted);
+    font: inherit; font-size: 12px; font-weight: 650;
+    padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  }
+  .theme-switch button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 10px 16px; border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface); color: var(--text);
+    font: inherit; font-size: 13px; font-weight: 650;
+    text-decoration: none; cursor: pointer;
+    transition: transform .16s ease, border-color .16s ease, background .16s ease;
+  }
+  .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .btn.small { padding: 7px 13px; font-size: 12px; }
+  html[data-theme="terminal"] .btn, html[data-theme="terminal"] .theme-switch { border-radius: 6px; }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+  }
+  .grid { display: grid; gap: 20px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    color: var(--accent); font-size: 12px; font-weight: 750;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px rgba(34, 197, 94, .14); }
+  h1, h2, h3, h4 { margin: 0; line-height: 1.18; letter-spacing: -.035em; }
+  h2 { font-size: 22px; }
+  h3 { font-size: 19px; }
+  p { margin: 0; }
+  .muted { color: var(--muted); }
+  .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 34px 0 16px; }
+  .section-heading p { color: var(--muted); font-size: 13px; }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.25fr .75fr; gap: 30px; align-items: center; padding: 38px; overflow: hidden; }
+  .hero h1 { font-size: clamp(38px, 6vw, 62px); margin: 14px 0 12px; }
+  .hero h1 span { color: var(--accent); }
+  .hero-role { max-width: 52ch; color: var(--muted); font-size: 16px; }
+  .contact-chips { display: flex; flex-wrap: wrap; gap: 9px; margin: 22px 0 24px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 12px; border-radius: 999px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    color: var(--text); font-size: 12.5px; text-decoration: none;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .chip svg { width: 14px; height: 14px; flex: none; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .avatar-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .avatar { width: 76px; height: 76px; flex: none; object-fit: cover; object-position: 50% 25%; border-radius: 16px; filter: grayscale(.35) contrast(1.06); border: 1px solid var(--border); }
+  .avatar-caption { font-family: var(--mono); font-size: 11px; line-height: 1.7; color: var(--muted); }
+  .avatar-caption strong { display: block; color: var(--text); font-size: 12px; }
+  .code-window { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--surface-2); font-family: var(--mono); }
+  .window-bar { display: flex; align-items: center; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  .window-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border); display: block; }
+  .window-bar i:first-child { background: #f87171; }
+  .window-bar i:nth-child(2) { background: #fbbf24; }
+  .window-bar i:nth-child(3) { background: #34d399; }
+  .window-bar em { margin-left: 8px; font-style: normal; font-size: 11px; color: var(--muted); }
+  .code-window pre { margin: 0; padding: 16px 18px; font-size: 11.5px; line-height: 1.75; overflow-x: auto; color: var(--text); }
+  .c { color: var(--muted); }
+  .k { color: var(--accent); }
+  .s { color: var(--accent-2); }
+  .n { color: #f59e0b; }
+  .terminal-line { margin-top: 12px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .terminal-line .prompt { color: var(--accent); font-weight: 700; }
+  .caret { display: inline-block; width: 7px; height: 14px; vertical-align: -2px; background: var(--accent); animation: blink 1.1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; }
+  .stat { padding: 20px; }
+  .stat strong { display: block; font-size: 28px; letter-spacing: -.05em; color: var(--accent); line-height: 1.1; }
+  .stat span { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; }
+
+  /* Content cards */
+  .about-grid { grid-template-columns: 1.15fr .85fr; margin-top: 20px; }
+  .card-label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .profile-text { color: var(--muted); }
+  .profile-text strong { color: var(--text); }
+  .edu-item { display: flex; gap: 14px; align-items: flex-start; }
+  .edu-icon { display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 12px; background: var(--accent-soft); color: var(--accent); font-family: var(--mono); font-weight: 800; }
+  .edu-item h3 { font-size: 16px; }
+  .edu-meta { margin-top: 6px; color: var(--muted); font-size: 13px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag {
+    display: inline-block; padding: 5px 10px; border-radius: 7px;
+    background: var(--accent-soft); color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    font-family: var(--mono); font-size: 11.5px;
+  }
+  .skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 28px; }
+  .skills-grid h4 { font-size: 13px; margin-bottom: 8px; }
+  .skills-grid p { color: var(--muted); font-size: 13px; }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .projects .project:nth-child(3) { grid-column: 1 / -1; }
+  .project { display: flex; flex-direction: column; }
+  .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+  .project-index { font-family: var(--mono); font-size: 12px; color: var(--accent); font-weight: 700; }
+  .project-kind { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 4px 9px; border-radius: 999px; }
+  .project h3 { font-size: 21px; }
+  .project .subtitle { margin-top: 7px; color: var(--muted); font-size: 13.5px; }
+  .bullets { margin: 18px 0 0; padding-left: 18px; color: var(--muted); font-size: 13.5px; }
+  .bullets li + li { margin-top: 8px; }
+  .bullets strong { color: var(--text); }
+  .more { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px; }
+  .more summary { cursor: pointer; color: var(--accent); font-size: 12.5px; font-weight: 650; list-style: none; }
+  .more summary::-webkit-details-marker { display: none; }
+  .more summary::after { content: " +"; font-family: var(--mono); }
+  .more[open] summary::after { content: " −"; }
+  .more .bullets { font-size: 12.5px; }
+  .project-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 20px; }
+  .project-meta { color: var(--muted); font-size: 11.5px; font-family: var(--mono); }
+
+  /* Extras */
+  .extras { grid-template-columns: 1fr 1fr 1fr; margin-top: 20px; }
+  .extras .card h3 { font-size: 16px; margin-bottom: 10px; }
+  .extras .card p, .extras .card li { color: var(--muted); font-size: 13px; }
+  .extras ul { margin: 0; padding-left: 17px; }
+  .extras li + li { margin-top: 6px; }
+  .link-list { display: grid; gap: 8px; margin-top: 12px; }
+  .link-list a { font-size: 13px; text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
+  .link-list a span { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 12px; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px);
+    background: var(--text); color: var(--bg);
+    padding: 10px 16px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
+    opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 50;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  html[data-theme="terminal"] .eyebrow::before { content: "~/ "; }
+  html[data-theme="terminal"] .section-heading h2::before { content: "# "; color: var(--muted); }
+  html[data-theme="terminal"] .card-label::before { content: "// "; }
+  html[data-theme="terminal"] .card { box-shadow: none; }
+  html[data-theme="terminal"] .hero h1 { font-weight: 700; }
+  html[data-theme="terminal"] .more summary::after { content: " [+]"; }
+  html[data-theme="terminal"] .more[open] summary::after { content: " [-]"; }
+
+  @media (max-width: 920px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-side { order: -1; }
+    .extras { grid-template-columns: 1fr 1fr; }
+    .extras .card:last-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 760px) {
+    .topnav { display: none; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .about-grid, .projects, .extras, .skills-grid { grid-template-columns: 1fr; }
+    .extras .card:last-child { grid-column: auto; }
+    .card { padding: 22px; }
+    .hero { padding: 26px; }
+    .section-heading { align-items: start; flex-direction: column; gap: 4px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+  @media print {
+    .topbar, .hero-actions, .terminal-line, .toast { display: none !important; }
+    body { background: #fff; color: #000; font-size: 11pt; }
+    body::before { display: none; }
+    .shell { max-width: none; padding: 0; }
+    .card { border: 0; box-shadow: none; padding: 0 0 12px; margin: 0 0 12px; break-inside: avoid; }
+    .grid, .stats, .projects, .extras, .skills-grid, .about-grid { display: block; }
+    .hero { display: block; }
+    .hero-side, .more { display: none; }
+    .stat { display: inline-block; width: 24%; }
+    .section-heading { margin-top: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell" id="top">
+
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-mark">TR</span><span>Md. Taiyeb Raza</span></a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#elsewhere">Elsewhere</a>
+    </nav>
+    <div class="controls">
+      <div class="theme-switch" role="group" aria-label="Choose visual theme">
+        <button type="button" data-theme-target="bento" aria-pressed="true">Bento</button>
+        <button type="button" data-theme-target="terminal" aria-pressed="false">Terminal</button>
+      </div>
+      <a class="btn small" href="resume.html">ATS CV ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="card hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> CSE student · Open to internships</div>
+        <h1 id="hero-title">Md. Taiyeb <span>Raza</span></h1>
+        <p class="hero-role">Computer Science &amp; Engineering student and software developer building <strong>full-stack web systems</strong> and <strong>real-time GPU graphics</strong>.</p>
+        <div class="contact-chips">
+          <a class="chip" href="mailto:taiyebreza013@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            taiyebreza013@gmail.com
+          </a>
+          <button class="chip" type="button" id="copy-email" title="Copy email address">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+            Copy email
+          </button>
+          <a class="chip" href="tel:+8801327399241">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+            +880 1327-399241
+          </a>
+          <a class="chip" href="https://github.com/tybx007" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.8c.85 0 1.71.11 2.51.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            github.com/tybx007
+          </a>
+          <span class="chip">Mymensingh, Bangladesh</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">Explore projects ↓</a>
+          <a class="btn" href="resume.html">Print-ready ATS CV</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="avatar-row">
+          <img class="avatar" src="856b3ffe-8140-4a77-9c78-3051c8b4e496.jpg" alt="Portrait of Md. Taiyeb Raza">
+          <div class="avatar-caption"><strong>Md. Taiyeb Raza</strong>CSE student · JKKNIU<br>Visual CV / 2026</div>
+        </div>
+        <div class="code-window">
+          <div class="window-bar"><i></i><i></i><i></i><em>profile.ts — cv</em></div>
+          <pre><code><span class="c">// compile: curiosity + consistency</span>
+<span class="k">const</span> taiyeb = {
+  role:   <span class="s">"CSE student"</span>,
+  focus:  [<span class="s">"web"</span>, <span class="s">"graphics"</span>],
+  stack:  [<span class="s">"PHP"</span>, <span class="s">"MySQL"</span>,
+           <span class="s">"C++"</span>, <span class="s">"OpenGL"</span>],
+  shipped: <span class="n">2</span> <span class="c">// final-year projects</span>
+};</code></pre>
+        </div>
+        <div class="terminal-line"><span class="prompt">$</span> ./build.sh --with persistence <span class="caret" aria-hidden="true"></span></div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Quick stats">
+      <div class="card stat"><strong>03</strong><span>projects built and documented</span></div>
+      <div class="card stat"><strong>13/13</strong><span>web system tests passed</span></div>
+      <div class="card stat"><strong>30 FPS</strong><span>real-time graphics at 720p</span></div>
+      <div class="card stat"><strong>05</strong><span>role-based portal types</span></div>
+    </section>
+
+    <section class="grid about-grid" id="about">
+      <article class="card">
+        <div class="card-label">01 / Profile</div>
+        <h2>About me</h2>
+        <p class="profile-text" style="margin-top:12px">
+          I'm a final-year <strong>B.Sc. Computer Science and Engineering</strong> student at Jatiya Kabi Kazi Nazrul Islam University. I like work that sits between <strong>application logic</strong> and <strong>visual output</strong> — from admission workflows with multiple user roles to fragment shaders that bend light in real time.
+        </p>
+        <p class="profile-text" style="margin-top:12px">
+          My recent projects were built end to end: requirements, design diagrams, implementation, functional testing and documentation. I care about clean structure, clear evidence, and shipping something I can actually demonstrate.
+        </p>
+      </article>
+      <article class="card" id="education">
+        <div class="card-label">02 / Education</div>
+        <div class="edu-item">
+          <div class="edu-icon" aria-hidden="true">J</div>
+          <div>
+            <h3>B.Sc. in Computer Science and Engineering</h3>
+            <div class="edu-meta">Jatiya Kabi Kazi Nazrul Islam University (JKKNIU)<br>Trishal, Mymensingh-2224, Bangladesh · Session 2020–21 · Expected 2026</div>
+            <div class="tag-row">
+              <span class="tag">Roll 21102009</span>
+              <span class="tag">Reg. 9876</span>
+            </div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:18px;font-size:13px">Final-year project supervised by Dr. Md. Saiful Islam, Professor, Department of CSE.</p>
+      </article>
+    </section>
+
+    <section class="card" id="skills" style="margin-top:20px">
+      <div class="card-label">03 / Toolkit</div>
+      <h2>Technical skills</h2>
+      <div class="skills-grid" style="margin-top:20px">
+        <div>
+          <h4>Languages</h4>
+          <p>C++, PHP, JavaScript, SQL, HTML5, CSS3, GLSL</p>
+        </div>
+        <div>
+          <h4>Frameworks &amp; libraries</h4>
+          <p>Bootstrap 5, OpenGL 3.3, GLFW, GLEW, GLM, Dompdf</p>
+        </div>
+        <div>
+          <h4>Tools &amp; databases</h4>
+          <p>MySQL, Apache, XAMPP, CMake, Ninja, GCC, VS Code, Git &amp; GitHub</p>
+        </div>
+        <div>
+          <h4>CS foundations</h4>
+          <p>OOP, data structures, relational database design, software architecture, computer graphics, shader programming, UML / DFD / ERD, SDLC, functional testing</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="projects-title">
+      <div class="section-heading">
+        <div>
+          <div class="card-label">04 / Selected work</div>
+          <h2 id="projects-title">Projects</h2>
+        </div>
+        <p>Three academic projects, each with a full written report linked below.</p>
+      </div>
+      <div class="projects">
+        <article class="card project">
+          <div class="project-top">
+            <span class="project-index">01 / WEB SYSTEM</span>
+            <span class="project-kind">Final-year project · 2026</span>
+          </div>
+          <h3>JKKNIU Admission Management System</h3>
+          <p class="subtitle">A web platform that digitalises the complete post-GST admission workflow for Jatiya Kabi Kazi Nazrul Islam University.</p>
+          <ul class="bullets">
+            <li>Built <strong>five role-based portals</strong> — applicant, registrar, department, hall and super admin — around one centralised MySQL database.</li>
+            <li>Implemented registration/auth, merit-list generation, department viva selection, document and hall verification, notices and fee-payment stages.</li>
+            <li>Designed modular PHP components and relational schema; <strong>13 of 13 functional test cases passed</strong>.</li>
+          </ul>
+          <div class="project-foot">
+            <div class="tag-row" style="margin:0"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span><span class="tag">JS</span></div>
+            <a class="btn small" href="AdmissionManagementSystem%20(3).pdf" target="_blank" rel="noopener">View report ↗</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <span class="project-index">02 / COMPUTER GRAPHICS</span>
+            <span class="project-kind">CSE 428 Lab · Nov 2026</span>
+          </div>
+          <h3>GARGANTUA — Ultimate Black Hole Explorer</h3>
+          <p class="subtitle">An interactive real-time 3D black hole visualisation built with C++, OpenGL and GLSL fragment shaders.</p>
+          <ul class="bullets">
+            <li>Rendered an event horizon, approximate gravitational lensing, photon-ring glow and a procedural accretion disk on the GPU.</li>
+            <li>Used ray reconstruction, noise-driven plasma patterns, Doppler-inspired brightness and a procedural starfield.</li>
+            <li>Reached <strong>~30 FPS at 1280×720</strong> on Intel Iris Xe; <strong>8 of 8 functional tests passed</strong>.</li>
+          </ul>
+          <div class="project-foot">
+            <div class="tag-row" style="margin:0"><span class="tag">C++</span><span class="tag">OpenGL</span><span class="tag">GLSL</span><span class="tag">CMake</span></div>
+            <a class="btn small" href="gargantua.pdf" target="_blank" rel="noopener">View report ↗</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-top">
+            <span class="project-index">03 / WEB SYSTEM</span>
+            <span class="project-kind">Academic project · 2026</span>
+          </div>
+          <h3>University Result Management System (uniRMS)</h3>
+          <p class="subtitle">A role-based platform for result processing, GPA calculation and verifiable academic transcripts.</p>
+          <ul class="bullets">
+            <li>Built four role modules — <strong>Administrator, Teacher, Chairman and Student</strong> — with controlled approval before publication.</li>
+            <li>Implemented automatic grade, semester GPA and cumulative GPA calculation, plus PDF transcript generation with a unique verification code.</li>
+            <li>Verified authentication, course assignment, marks entry, approval, result viewing and transcript generation through functional testing.</li>
+          </ul>
+          <div class="project-foot">
+            <div class="tag-row" style="margin:0"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap 5</span><span class="tag">JS</span></div>
+            <a class="btn small" href="uniRMS20(1).pdf" target="_blank" rel="noopener">View report ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid extras" id="elsewhere">
+      <article class="card">
+        <div class="card-label">05 / Coursework</div>
+        <h3>Relevant areas</h3>
+        <ul>
+          <li>Computer Graphics Lab (CSE 428)</li>
+          <li>Software engineering &amp; SDLC</li>
+          <li>Database systems &amp; ER modelling</li>
+          <li>Web technologies &amp; systems design</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="card-label">06 / Achievement</div>
+        <h3>BUET CTF 2023</h3>
+        <p>Secured <strong>14th place among participating teams</strong> in the BUET Capture The Flag cybersecurity competition.</p>
+        <p style="margin-top:12px">Interests: Software Engineering · Full-Stack · Backend · Database Systems · Cybersecurity · Computer Graphics.</p>
+      </article>
+      <article class="card">
+        <div class="card-label">07 / Working style</div>
+        <h3>What I bring</h3>
+        <p>End-to-end ownership: requirement analysis → diagrams → implementation → testing → documentation. I keep evidence close: reports, test results and repositories.</p>
+      </article>
+      <article class="card">
+        <div class="card-label">08 / Elsewhere</div>
+        <h3>Find me online</h3>
+        <div class="link-list">
+          <a href="https://github.com/tybx007" target="_blank" rel="noopener"><span>GH</span> github.com/tybx007</a>
+          <a href="https://www.instagram.com/halfempty_vsl/" target="_blank" rel="noopener"><span>IG</span> @halfempty_vsl</a>
+          <a href="https://www.facebook.com/taiyeb.reza" target="_blank" rel="noopener"><span>FB</span> facebook.com/taiyeb.reza</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <span>Md. Taiyeb Raza · Computer Science and Engineering · JKKNIU</span>
+    <span>Last updated: November 2026 · <a href="resume.html">ATS / printable version</a></span>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var themeButtons = document.querySelectorAll('[data-theme-target]');
+
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      themeButtons.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', String(btn.getAttribute('data-theme-target') === theme));
+      });
+      try { localStorage.setItem('tr-cv-theme', theme); } catch (e) {}
+    }
+
+    themeButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () { applyTheme(btn.getAttribute('data-theme-target')); });
+    });
+    applyTheme(root.getAttribute('data-theme') || 'bento');
+
+    var toast = document.getElementById('toast');
+    var toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+    }
+
+    document.getElementById('copy-email').addEventListener('click', function () {
+      var email = 'taiyebreza013@gmail.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email)
+          .then(function () { showToast('Email copied to clipboard'); })
+          .catch(function () { showToast('Copy failed — select the email manually'); });
+      } else {
+        var input = document.createElement('input');
+        input.value = email;
+        document.body.appendChild(input);
+        input.select();
+        try { document.execCommand('copy'); showToast('Email copied to clipboard'); }
+        catch (e) { showToast('Copy failed — select the email manually'); }
+        document.body.removeChild(input);
+      }
+    });
+  })();
+</script>
+</body>
+</html>
