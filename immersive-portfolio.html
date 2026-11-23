@@ -171,8 +171,7 @@
   .work .wrap { width: min(100%, 1320px); }
   .work-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 50px; }
   .work-head p { max-width: 36ch; color: var(--muted); font-size: 13px; }
-  .ice-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 3vw, 38px); }
-  @media (max-width: 1180px) { .ice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .ice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 3vw, 38px); }
   .ice-card {
     position: relative; min-height: 430px; padding: 30px 30px 28px;
     background: linear-gradient(145deg, rgba(22, 40, 50, .62), rgba(6, 13, 18, .76));
@@ -357,7 +356,7 @@
     <div class="wrap">
       <div class="work-head">
         <div><div class="kicker">02 / ARTIFACTS</div><h2 class="section-title" data-scramble>SELECTED<br>WORK</h2></div>
-        <p>Each project is a self-contained world. Hover to tilt the block; open the report for the full build log.</p>
+        <p>Each project is a self-contained world. Hover to tilt the block; open the report or source for the full build log.</p>
       </div>
       <div class="ice-grid">
         <article class="ice-card reveal" data-tilt>
@@ -402,6 +401,20 @@
             <a class="ghost-btn" href="uniRMS20(1).pdf" target="_blank" rel="noopener">Report ↗</a>
           </div>
         </article>
+        <article class="ice-card reveal" data-tilt>
+          <div class="ice-top"><span>04 / BACKEND API</span><span>2026</span></div>
+          <h3>EduBoardAPI<br>v2</h3>
+          <p class="sub">A Rust REST API that turns education board result lookups into a clean, documented service.</p>
+          <ul>
+            <li><b>Axum + Tokio</b> endpoints for sessions, CAPTCHA and result verification.</li>
+            <li>Cookie-aware HTTP client, HTML parsing, CORS, structured logs and Swagger/OpenAPI docs.</li>
+            <li>Background session cleanup and <b>Docker</b> deployment with health checks.</li>
+          </ul>
+          <div class="ice-foot">
+            <div class="tags"><span>RUST</span><span>AXUM</span><span>TOKIO</span><span>DOCKER</span></div>
+            <a class="ghost-btn" href="https://github.com/tybx007/eduboardapi-v2" target="_blank" rel="noopener">Source ↗</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -411,13 +424,13 @@
       <div class="kicker">03 / INVENTORY</div>
       <h2 class="section-title" data-scramble>THE STACK</h2>
       <div class="marquee" aria-hidden="true">
-        <span>C++</span><span>OpenGL</span><span>GLSL</span><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Bootstrap</span><span>CMake</span><span>GLFW</span><span>SQL</span><span>GitHub</span>
-        <span>C++</span><span>OpenGL</span><span>GLSL</span><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>Bootstrap</span><span>CMake</span><span>GLFW</span><span>SQL</span><span>GitHub</span>
+        <span>C++</span><span>OpenGL</span><span>GLSL</span><span>PHP</span><span>MySQL</span><span>Rust</span><span>Axum</span><span>Tokio</span><span>JavaScript</span><span>Bootstrap</span><span>CMake</span><span>GLFW</span><span>SQL</span><span>Docker</span><span>GitHub</span>
+        <span>C++</span><span>OpenGL</span><span>GLSL</span><span>PHP</span><span>MySQL</span><span>Rust</span><span>Axum</span><span>Tokio</span><span>JavaScript</span><span>Bootstrap</span><span>CMake</span><span>GLFW</span><span>SQL</span><span>Docker</span><span>GitHub</span>
       </div>
       <div class="stack-cols">
-        <div class="stack-col reveal"><h3>Languages</h3><p>C++<br>PHP<br>JavaScript<br>SQL<br>HTML5 / CSS3<br>GLSL</p></div>
-        <div class="stack-col reveal"><h3>Graphics &amp; tools</h3><p>OpenGL 3.3<br>GLFW / GLEW / GLM<br>CMake / Ninja / GCC<br>MySQL / Apache<br>VS Code / GitHub</p></div>
-        <div class="stack-col reveal"><h3>Foundations</h3><p>OOP<br>Relational design<br>Computer graphics<br>UML / DFD / ERD<br>Waterfall SDLC<br>Functional testing</p></div>
+        <div class="stack-col reveal"><h3>Languages</h3><p>C++<br>PHP<br>Rust<br>JavaScript<br>SQL<br>HTML5 / CSS3<br>GLSL</p></div>
+        <div class="stack-col reveal"><h3>Frameworks &amp; tools</h3><p>Axum / Tokio<br>OpenGL 3.3<br>GLFW / GLEW / GLM<br>CMake / Ninja / GCC<br>MySQL / Apache<br>Docker / GitHub</p></div>
+        <div class="stack-col reveal"><h3>Foundations</h3><p>OOP<br>Relational design<br>REST API design<br>Computer graphics<br>UML / DFD / ERD<br>Waterfall SDLC<br>Functional testing</p></div>
       </div>
     </div>
   </section>
@@ -430,6 +443,7 @@
       <a class="mail" href="mailto:taiyebreza013@gmail.com">taiyebreza013@gmail.com</a>
       <div class="link-maze">
         <a href="https://github.com/tybx007" target="_blank" rel="noopener" data-shape="cube">GitHub ↗</a>
+        <a href="https://github.com/tybx007/eduboardapi-v2" target="_blank" rel="noopener" data-shape="wave">Rust API ↗</a>
         <a href="https://www.instagram.com/halfempty_vsl/" target="_blank" rel="noopener" data-shape="helix">Instagram ↗</a>
         <a href="https://www.facebook.com/taiyeb.reza" target="_blank" rel="noopener" data-shape="ring">Facebook ↗</a>
         <a href="resume.html" data-shape="wave">ATS CV ↗</a>
